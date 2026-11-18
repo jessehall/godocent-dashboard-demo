@@ -857,7 +857,7 @@ button:disabled { cursor: default; }
         <div class="section-body">
           <div class="prospect-toolbar"><button id="clear-product" class="pagination-btn" hidden>Show all products</button></div>
           <div class="stats-summary" id="statsSummary" role="status"></div>
-          <p class="score-note pending-review" data-pending="Scoring rules pending agreement">Example scoring: page view +1, button click +3, video play +2, favorite +4. High 10+, Medium 5–9, Low 0–4. These rules are for discussion.</p>
+          <p class="score-note">Example scoring: page view +1, button click +3, video play +2, favorite +4. High 10+, Medium 5–9, Low 0–4. These rules are for discussion.</p>
           <div class="prospects-grid" id="prospectsGrid"></div>
           <div class="pagination" id="pagination"></div>
         </div>
@@ -1279,7 +1279,7 @@ function prospectContact(icon,value,fallback,href) {
   return row;
 }
 function prospectMetric(label,value) {
-  const metric = element('div','','prospect-metric' + (label.includes('score') ? ' pending-field' : ''));
+  const metric = element('div','','prospect-metric');
   metric.append(
     element('div',value ?? 'Unavailable',value === null ? 'prospect-metric-value prospect-unavailable' : 'prospect-metric-value'),
     element('div',label,'prospect-metric-label')
@@ -1358,7 +1358,7 @@ function profileCard(person,index) {
     element('div',person?.company || 'Company unavailable','prospect-company')
   );
   const engagement = person ? tier(person.score) : null;
-  const badge = element('span',engagement || 'Tier unavailable','engagement-badge pending-field');
+  const badge = element('span',engagement || 'Tier unavailable','engagement-badge');
   if (engagement) {
     badge.dataset.engagement = engagement.toLowerCase();
     badge.title = 'Based on the example scoring rules';
@@ -1542,7 +1542,7 @@ function renderSourceInformation() {
   note.querySelector('p').textContent = details.join(' ');
   const pointLabels = Object.entries(model.scoring.points).map(([type,points]) => (eventLabels[type] || type) + ' +' + points);
   const thresholds = model.scoring.tiers;
-  document.querySelector('.score-note:not(#activity-breakdown)').textContent = 'Example scoring: ' + pointLabels.join(', ') + '. High ' + thresholds.high + '+, Medium ' + thresholds.medium + '–' + (thresholds.high - 1) + ', Low 0–' + (thresholds.medium - 1) + '. These rules are for discussion.';
+  document.querySelector('.score-note:not(#activity-breakdown)').textContent = 'Example scoring: ' + pointLabels.join(', ') + '. High ' + thresholds.high + '+, Medium ' + thresholds.medium + '–' + (thresholds.high - 1) + ', Low 0–' + (thresholds.medium - 1) + '. Using these rules unless changes are requested.';
   const productSubtitle = document.querySelector('#product-engagement .section-subtitle');
   if (productSubtitle) productSubtitle.textContent = model.summary.productsExplored + ' GoDo pages ranked by activity';
 }
