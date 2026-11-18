@@ -666,6 +666,7 @@ button:disabled { cursor: default; }
 .pending-review{position:relative}
 .pending-review::before{content:attr(data-pending);display:block;padding:7px 12px;background:#fff1f1;color:#9d2020;font:700 13px/1.4 Mulish,sans-serif}
 .score-note.pending-review{padding:8px 12px}
+.pending-email-button{outline:2px solid #b62525;outline-offset:3px;border-radius:0!important}
 </style><style>.pending-field{outline:2px solid #b62525;outline-offset:2px}.prospect-unavailable.pending-field{padding:2px 4px}</style></head>
   <body>
     <header class="header"><div class="header-content">
@@ -1398,7 +1399,7 @@ function profileCard(person,index) {
   }
 
   const actions = element('div','','prospect-actions');
-  const generateButton = button('Generate Email','btn btn-primary',() => showPreview(person));
+  const generateButton = button('Generate Email','btn btn-primary pending-email-button',() => showPreview(person));
   generateButton.prepend(prospectIcon('mail'));
   const detailsButton = button('Details','btn btn-secondary',() => {
     detail.hidden = !detail.hidden;
