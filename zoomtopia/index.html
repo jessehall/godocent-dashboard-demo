@@ -666,7 +666,7 @@ button:disabled { cursor: default; }
 .pending-review{position:relative}
 .pending-review::before{content:attr(data-pending);display:block;padding:7px 12px;background:#fff1f1;color:#9d2020;font:700 13px/1.4 Mulish,sans-serif}
 .score-note.pending-review{padding:8px 12px}
-.pending-email-button{outline:2px solid #b62525;outline-offset:3px}
+.date-filter-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-block:20px}.date-filter-bar label{display:flex;gap:8px;align-items:center}.date-filter-bar input{font:inherit;padding:8px;border:1px solid #b5bfcb;border-radius:6px}.date-filter-bar span{color:#536d8b} [hidden]{display:none!important}
 </style><style>.pending-field{outline:2px solid #b62525;outline-offset:2px}.prospect-unavailable.pending-field{padding:2px 4px}</style></head>
   <body>
     <header class="header"><div class="header-content">
@@ -676,7 +676,7 @@ button:disabled { cursor: default; }
     <main class="dashboard-container">
 <div class="pending-notice" role="note"><strong>Anonymous data pending</strong><p>This demo contains identified activity only. Red outlines mark features or rules that still need agreement, data, or implementation.</p></div>
       <div class="source-note"><strong>Zoomtopia</strong><span>20 demo identities · 279 recorded interactions · Sep 2023 to May 2025</span>
-      <p>Each GoDo page is a product. Contact details use placeholders. Names, phone numbers, company, job title, and LinkedIn are unavailable in the source.</p></div>
+      <p>Each GoDo page is a product. Contact details use placeholders. Names, phone numbers, company and job title are unavailable in the source.</p></div>
       <!-- Metrics Row -->
       <div class="metrics-row">
         <a class="metric-card metric-link" href="#prospect-profiles">
@@ -1178,11 +1178,12 @@ function buildDashboardModel(data, filters = {}) {
 
 
 const data = JSON.parse(document.getElementById('export-data').textContent);
-const model = buildDashboardModel(data);
+let filteredInteractions = data.interactions;
+let model = buildDashboardModel(data);
 const pageById = new Map(data.pages.map(page => [page.id,page]));
-const prospectById = new Map(model.prospects.map(person => [person.id,person]));
+let prospectById = new Map(model.prospects.map(person => [person.id,person]));
 const get = id => document.getElementById(id);
-const chosen = () => data.interactions;
+const chosen = () => filteredInteractions;
 const tier = value => engagementTier(value,model.scoring);
 const pageFor = interaction => pageById.get(interaction.pageId);
 const eventLabel = interaction => eventLabels[interaction.type] || interaction.type;
@@ -1372,8 +1373,7 @@ function profileCard(person,index) {
   const dialNumber = phone?.replace(/[^+\d]/g,'');
   contact.append(
     prospectContact('mail',email,'Email unavailable',email && 'mailto:' + encodeURIComponent(email).replace('%40','@')),
-    prospectContact('phone',phone,'Phone unavailable',dialNumber && 'tel:' + dialNumber),
-    prospectContact('link',person?.linkedIn,'LinkedIn unavailable',safeHttpUrl(person?.linkedIn))
+    prospectContact('phone',phone,'Phone unavailable',dialNumber && 'tel:' + dialNumber)
   );
 
   const metrics = element('div','','prospect-metrics');
@@ -1399,7 +1399,7 @@ function profileCard(person,index) {
   }
 
   const actions = element('div','','prospect-actions');
-  const generateButton = button('Generate Email','btn btn-primary pending-email-button',() => showPreview(person));
+  const generateButton = button('Post Event Discovery Report','btn btn-primary',() => openReport(person));
   generateButton.prepend(prospectIcon('mail'));
   const detailsButton = button('Details','btn btn-secondary',() => {
     detail.hidden = !detail.hidden;
@@ -1518,8 +1518,7 @@ function unavailableContactFields(people) {
     ['Names',person => person.name && !person.isPlaceholder],
     ['Phone numbers',person => person.phone],
     ['Company',person => person.company],
-    ['Job title',person => person.jobTitle],
-    ['LinkedIn',person => person.linkedIn]
+    ['Job title',person => person.jobTitle]
   ];
   return fields.filter(([,available]) => people.every(person => !available(person))).map(([label]) => label);
 }
@@ -1784,7 +1783,7 @@ function populateReportPreview(container,person,summary,sourceName) {
       'Is there anyone else who should join the conversation?'
     ],'preview-discussion')]),
     previewSection('Data unavailable',[element('p',[...unavailableContactFields([person]),'Video watch time','Completed bookings'].join(', ') + ' are unavailable in the source.' + (person.isPlaceholder ? ' Contact identities are demo placeholders.' : ''))],'preview-callout'),
-    schedulingPreview('Ready to continue the conversation?','Reply to the follow-up email with the topic you’d like to cover and a time that works for you.')
+    schedulingPreview('Ready to continue the conversation?','Choose a time to discuss the products you explored.')
   );
   report.append(previewHeader(sourceName,data.event.name + ' discovery report'),body,previewFooter('Prepared from GoDo activity'));
   container.replaceChildren(report);
@@ -1875,6 +1874,57 @@ get('download-prospects').onclick = () => {
 };
 
 render();
+
+// Report view shares the standalone file and supports browser Back navigation.
+const dashboardPage = document.querySelector('.dashboard-container');
+const reportPage = element('main','','dashboard-container');
+reportPage.hidden = true;
+const reportBack = button('Back to dashboard','btn btn-secondary',() => { location.hash = ''; });
+const reportHeading = element('h1','Post Event Discovery Report');
+const reportContent = element('div','');
+reportPage.append(reportBack,reportHeading,reportContent);
+dashboardPage.after(reportPage);
+function openReport(person) {
+  if (person) location.hash = 'report/' + encodeURIComponent(person.id);
+}
+function renderReportRoute() {
+  const match = location.hash.match(/^#report\/(.+)$/);
+  const showingReport = Boolean(match);
+  dashboardPage.hidden = showingReport;
+  reportPage.hidden = !showingReport;
+  if (!match) return;
+  const person = prospectById.get(decodeURIComponent(match[1]));
+  if (person) populateReportPreview(reportContent,person,previewSummary(person.interactions),data.event.name);
+  else reportContent.replaceChildren(element('p','No activity for this attendee in the selected date range.'));
+}
+window.addEventListener('hashchange',() => { renderReportRoute(); window.scrollTo(0,0); });
+const filterBar = element('form','','dashboard-container date-filter-bar');
+const fromLabel = element('label','From ');
+const toLabel = element('label','To ');
+const fromDate = document.createElement('input'); fromDate.type = 'date';
+const toDate = document.createElement('input'); toDate.type = 'date';
+fromLabel.append(fromDate); toLabel.append(toDate);
+const filterMessage = element('span','All available dates'); filterMessage.setAttribute('role','status');
+const applyDates = button('Apply','btn btn-primary',() => {}); applyDates.type = 'submit';
+const clearDates = button('All dates','btn btn-secondary',() => { fromDate.value = ''; toDate.value = ''; applyDateFilter(); }); clearDates.type = 'button';
+filterBar.append(fromLabel,toLabel,applyDates,clearDates,filterMessage);
+dashboardPage.before(filterBar);
+function applyDateFilter() {
+  if (fromDate.value && toDate.value && fromDate.value > toDate.value) {
+    filterMessage.textContent = 'Choose an end date on or after the start date.'; return;
+  }
+  filteredInteractions = data.interactions.filter(item => {
+    const date = item.occurredAt.slice(0,10);
+    return (!fromDate.value || date >= fromDate.value) && (!toDate.value || date <= toDate.value);
+  });
+  model = buildDashboardModel({...data,interactions:filteredInteractions});
+  prospectById = new Map(model.prospects.map(person => [person.id,person]));
+  page = 0;
+  filterMessage.textContent = fromDate.value || toDate.value ? (fromDate.value || 'Beginning') + ' to ' + (toDate.value || 'Latest') : 'All available dates';
+  render(); renderReportRoute();
+}
+filterBar.addEventListener('submit',event => { event.preventDefault(); applyDateFilter(); });
+renderReportRoute();
 
 })();
 </script></body></html>
