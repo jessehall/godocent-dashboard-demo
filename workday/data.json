@@ -11,6 +11,28 @@
     "originalInteractionRows": 1378,
     "includedInteractionRows": 992,
     "excludedInteractionRows": 386,
+    "mockedFields": [
+      {
+        "field": "pages[].buttons",
+        "databaseField": "Pin.buttons",
+        "reason": "Mock available content buttons for the scoring example."
+      },
+      {
+        "field": "pages[].media",
+        "databaseField": "Pin.media",
+        "reason": "Mock available videos for the scoring example."
+      },
+      {
+        "field": "interactions[].videoId",
+        "databaseField": "Event.data.video_id",
+        "reason": "Assign sample video identity to each existing sample play; the workbook has no video IDs."
+      },
+      {
+        "field": "interactions[].videoType",
+        "databaseField": "Event.data.video_type",
+        "reason": "Sample video provider paired with the mock page configuration."
+      }
+    ],
     "excluded": [
       {
         "field": "Image Viewed",
@@ -37,93 +59,902 @@
       "Dates have day precision only. Time of day, timezone, page URLs, video IDs and button records are not supplied.",
       "Anonymous events have no visitor ID. They support aggregate page, action and date counts, not individual histories or unique visitor counts. Anonymous ID tracking is deferred.",
       "Publication and report tokens are demo configuration for fixed report views, not telemetry or production access control.",
+      "Example V6 scores use mock page setup and mock video identity. No new activity rows, event times, contact-intent tags or staff/test flags are invented.",
+      "Scoring counts each distinct video once per attendee/page. Until contact buttons are classified, only saved products trigger the direct-ask HIGH rule.",
+      "Historical page configuration, staff/test cleanup and user-started video validation still need production decisions.",
       "All metrics are recomputed from All Interactions; the repeated Attendee Details sheet is not imported."
     ]
   },
   "pages": [
     {
       "id": "page-1",
-      "title": "Compensation"
+      "title": "Compensation",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-1/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-1/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-1/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-1/4"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-1-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-1-video-2"
+        }
+      ]
     },
     {
       "id": "page-2",
-      "title": "Financial Planning"
+      "title": "Financial Planning",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-2/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-2/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-2/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-2/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-2/5"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-2-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-2-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-2-video-3"
+        }
+      ]
     },
     {
       "id": "page-3",
-      "title": "Mobile"
+      "title": "Mobile",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-3/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-3/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-3/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-3/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-3/5"
+        },
+        {
+          "title": "Sample resource 6",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-3/6"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-3-video-1"
+        }
+      ]
     },
     {
       "id": "page-4",
-      "title": "Analytics & Reporting"
+      "title": "Analytics & Reporting",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-4/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-4/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-4/3"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-4-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-4-video-2"
+        }
+      ]
     },
     {
       "id": "page-5",
-      "title": "Learning"
+      "title": "Learning",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-5/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-5/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-5/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-5/4"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-5-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-5-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-5-video-3"
+        }
+      ]
     },
     {
       "id": "page-6",
-      "title": "HRM"
+      "title": "HRM",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-6/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-6/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-6/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-6/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-6/5"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-6-video-1"
+        }
+      ]
     },
     {
       "id": "page-7",
-      "title": "Contract Intelligence"
+      "title": "Contract Intelligence",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-7/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-7/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-7/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-7/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-7/5"
+        },
+        {
+          "title": "Sample resource 6",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-7/6"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-7-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-7-video-2"
+        }
+      ]
     },
     {
       "id": "page-8",
-      "title": "Talent Management"
+      "title": "Talent Management",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-8/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-8/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-8/3"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-8-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-8-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-8-video-3"
+        }
+      ]
     },
     {
       "id": "page-9",
-      "title": "Recruiting"
+      "title": "Recruiting",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-9/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-9/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-9/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-9/4"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-9-video-1"
+        }
+      ]
     },
     {
       "id": "page-10",
-      "title": "Workday Wellness"
+      "title": "Workday Wellness",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-10/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-10/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-10/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-10/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-10/5"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-10-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-10-video-2"
+        }
+      ]
     },
     {
       "id": "page-11",
-      "title": "Payroll"
+      "title": "Payroll",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-11/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-11/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-11/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-11/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-11/5"
+        },
+        {
+          "title": "Sample resource 6",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-11/6"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-11-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-11-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-11-video-3"
+        }
+      ]
     },
     {
       "id": "page-12",
-      "title": "Financial Management"
+      "title": "Financial Management",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-12/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-12/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-12/3"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-12-video-1"
+        }
+      ]
     },
     {
       "id": "page-13",
-      "title": "Responsible AI"
+      "title": "Responsible AI",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-13/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-13/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-13/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-13/4"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-13-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-13-video-2"
+        }
+      ]
     },
     {
       "id": "page-14",
-      "title": "Operational Planning"
+      "title": "Operational Planning",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-14/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-14/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-14/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-14/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-14/5"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-14-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-14-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-14-video-3"
+        }
+      ]
     },
     {
       "id": "page-15",
-      "title": "Agent System of Record"
+      "title": "Agent System of Record",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-15/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-15/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-15/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-15/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-15/5"
+        },
+        {
+          "title": "Sample resource 6",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-15/6"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-15-video-1"
+        }
+      ]
     },
     {
       "id": "page-16",
-      "title": "VNDLY"
+      "title": "VNDLY",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-16/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-16/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-16/3"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-16-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-16-video-2"
+        }
+      ]
     },
     {
       "id": "page-17",
-      "title": "Employee Experience"
+      "title": "Employee Experience",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-17/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-17/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-17/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-17/4"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-17-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-17-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-17-video-3"
+        }
+      ]
     },
     {
       "id": "page-18",
-      "title": "Vendor Mgmt System"
+      "title": "Vendor Mgmt System",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-18/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-18/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-18/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-18/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-18/5"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-18-video-1"
+        }
+      ]
     },
     {
       "id": "page-19",
-      "title": "Core HCM"
+      "title": "Core HCM",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-19/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-19/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-19/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-19/4"
+        },
+        {
+          "title": "Sample resource 5",
+          "type": "link",
+          "value": "https://example.com/resources/page-19/5"
+        },
+        {
+          "title": "Sample resource 6",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-19/6"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-19-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-19-video-2"
+        }
+      ]
     },
     {
       "id": "page-20",
-      "title": "Workforce Planning"
+      "title": "Workforce Planning",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-20/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-20/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-20/3"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-20-video-1"
+        },
+        {
+          "index": 1,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-20-video-2"
+        },
+        {
+          "index": 2,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-20-video-3"
+        }
+      ]
     },
     {
       "id": "page-21",
-      "title": "Supply Chain Mgmt"
+      "title": "Supply Chain Mgmt",
+      "buttons": [
+        {
+          "title": "Sample resource 1",
+          "type": "link",
+          "value": "https://example.com/resources/page-21/1"
+        },
+        {
+          "title": "Sample resource 2",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-21/2"
+        },
+        {
+          "title": "Sample resource 3",
+          "type": "link",
+          "value": "https://example.com/resources/page-21/3"
+        },
+        {
+          "title": "Sample resource 4",
+          "type": "pdf",
+          "value": "https://example.com/resources/page-21/4"
+        }
+      ],
+      "media": [
+        {
+          "index": 0,
+          "type": "video",
+          "value": "youtube",
+          "fid": "mock-page-21-video-1"
+        }
+      ]
     }
   ],
   "prospects": [
@@ -855,14 +1686,18 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-9",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-10",
@@ -883,7 +1718,9 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-13",
@@ -897,7 +1734,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-1"
+      "prospectId": "user-1",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-16",
@@ -939,14 +1778,18 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-1"
+      "prospectId": "user-1",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-25",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-2"
+      "prospectId": "user-2",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-27",
@@ -960,21 +1803,27 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-2"
+      "prospectId": "user-2",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-29",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": "user-2"
+      "prospectId": "user-2",
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-30",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-2"
+      "prospectId": "user-2",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-31",
@@ -995,7 +1844,9 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-2"
+      "prospectId": "user-2",
+      "videoId": "mock-page-11-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-35",
@@ -1030,14 +1881,18 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-2"
+      "prospectId": "user-2",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-40",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-3"
+      "prospectId": "user-3",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-41",
@@ -1058,7 +1913,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-3"
+      "prospectId": "user-3",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-44",
@@ -1072,7 +1929,9 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-3"
+      "prospectId": "user-3",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-47",
@@ -1107,14 +1966,18 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-57",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-58",
@@ -1128,7 +1991,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-61",
@@ -1149,7 +2014,9 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-65",
@@ -1163,14 +2030,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-67",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-68",
@@ -1184,7 +2055,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-4"
+      "prospectId": "user-4",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-72",
@@ -1310,14 +2183,18 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-97",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-98",
@@ -1359,7 +2236,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-104",
@@ -1373,14 +2252,18 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-6"
+      "prospectId": "user-6",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-106",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-6"
+      "prospectId": "user-6",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-107",
@@ -1436,7 +2319,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-6"
+      "prospectId": "user-6",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-117",
@@ -1464,7 +2349,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-7"
+      "prospectId": "user-7",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-122",
@@ -1513,7 +2400,9 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-7"
+      "prospectId": "user-7",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-130",
@@ -1541,14 +2430,18 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-8"
+      "prospectId": "user-8",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-136",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-8"
+      "prospectId": "user-8",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-138",
@@ -1562,7 +2455,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-8"
+      "prospectId": "user-8",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-140",
@@ -1597,7 +2492,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-8"
+      "prospectId": "user-8",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-151",
@@ -1653,14 +2550,18 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-9"
+      "prospectId": "user-9",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-159",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-9"
+      "prospectId": "user-9",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-160",
@@ -1681,14 +2582,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-9"
+      "prospectId": "user-9",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-165",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-9"
+      "prospectId": "user-9",
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-166",
@@ -1716,21 +2621,27 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-172",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-174",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-176",
@@ -1744,14 +2655,18 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-178",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-179",
@@ -1772,7 +2687,9 @@
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-10"
+      "prospectId": "user-10",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-182",
@@ -1807,14 +2724,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-10"
+      "prospectId": "user-10",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-188",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-10"
+      "prospectId": "user-10",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-189",
@@ -1835,7 +2756,9 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-10"
+      "prospectId": "user-10",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-193",
@@ -1856,7 +2779,9 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-11"
+      "prospectId": "user-11",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-199",
@@ -1870,7 +2795,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-11"
+      "prospectId": "user-11",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-202",
@@ -1884,14 +2811,18 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": "user-11"
+      "prospectId": "user-11",
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-204",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-11"
+      "prospectId": "user-11",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-206",
@@ -1947,7 +2878,9 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-12"
+      "prospectId": "user-12",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-216",
@@ -1968,7 +2901,9 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-12"
+      "prospectId": "user-12",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-223",
@@ -1982,7 +2917,9 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": "user-12"
+      "prospectId": "user-12",
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-226",
@@ -2003,7 +2940,9 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-12"
+      "prospectId": "user-12",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-231",
@@ -2052,14 +2991,18 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-13"
+      "prospectId": "user-13",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-242",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-13"
+      "prospectId": "user-13",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-243",
@@ -2080,7 +3023,9 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-13"
+      "prospectId": "user-13",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-246",
@@ -2108,7 +3053,9 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-13"
+      "prospectId": "user-13",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-254",
@@ -2122,7 +3069,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-14"
+      "prospectId": "user-14",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-256",
@@ -2150,14 +3099,18 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-14"
+      "prospectId": "user-14",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-261",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-14"
+      "prospectId": "user-14",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-262",
@@ -2185,7 +3138,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": "user-14"
+      "prospectId": "user-14",
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-268",
@@ -2213,7 +3168,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-14"
+      "prospectId": "user-14",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-274",
@@ -2248,7 +3205,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": "user-15"
+      "prospectId": "user-15",
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-280",
@@ -2283,7 +3242,9 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-15"
+      "prospectId": "user-15",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-287",
@@ -2311,7 +3272,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-15"
+      "prospectId": "user-15",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-292",
@@ -2332,7 +3295,9 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-295",
@@ -2353,7 +3318,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-298",
@@ -2416,7 +3383,9 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-307",
@@ -2437,14 +3406,18 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-311",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-312",
@@ -2472,7 +3445,9 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-316",
@@ -2486,7 +3461,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-318",
@@ -2500,7 +3477,9 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-322",
@@ -2514,21 +3493,27 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-324",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-325",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-327",
@@ -2549,7 +3534,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": "user-16"
+      "prospectId": "user-16",
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-332",
@@ -2570,7 +3557,9 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-16"
+      "prospectId": "user-16",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-336",
@@ -2591,7 +3580,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-16"
+      "prospectId": "user-16",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-341",
@@ -2605,21 +3596,27 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-16"
+      "prospectId": "user-16",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-344",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-16"
+      "prospectId": "user-16",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-345",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-16"
+      "prospectId": "user-16",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-346",
@@ -2633,14 +3630,18 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-349",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-352",
@@ -2689,7 +3690,9 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-17"
+      "prospectId": "user-17",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-360",
@@ -2731,14 +3734,18 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-17"
+      "prospectId": "user-17",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-369",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-18"
+      "prospectId": "user-18",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-370",
@@ -2787,14 +3794,18 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-19"
+      "prospectId": "user-19",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-385",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-19"
+      "prospectId": "user-19",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-386",
@@ -2822,7 +3833,9 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-19"
+      "prospectId": "user-19",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-390",
@@ -2857,7 +3870,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-19"
+      "prospectId": "user-19",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-396",
@@ -2885,14 +3900,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-19"
+      "prospectId": "user-19",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-400",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-19"
+      "prospectId": "user-19",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-401",
@@ -2906,7 +3925,9 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-404",
@@ -2927,84 +3948,108 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-411",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-412",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-413",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-414",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-415",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-416",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-417",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-8-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-418",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-419",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-420",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-422",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-423",
@@ -3018,7 +4063,9 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-425",
@@ -3032,7 +4079,9 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-427",
@@ -3046,14 +4095,18 @@
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-430",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-431",
@@ -3067,14 +4120,18 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-436",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-20"
+      "prospectId": "user-20",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-437",
@@ -3088,7 +4145,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-439",
@@ -3102,21 +4161,27 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-442",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-445",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-21"
+      "prospectId": "user-21",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-446",
@@ -3130,7 +4195,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-455",
@@ -3144,7 +4211,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-17-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-458",
@@ -3165,7 +4234,9 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-462",
@@ -3200,7 +4271,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-467",
@@ -3221,14 +4294,18 @@
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-474",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-475",
@@ -3242,21 +4319,27 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-477",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-479",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-481",
@@ -3270,14 +4353,18 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-483",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-484",
@@ -3305,7 +4392,9 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-489",
@@ -3319,21 +4408,27 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-492",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-495",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-22"
+      "prospectId": "user-22",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-496",
@@ -3347,7 +4442,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-22"
+      "prospectId": "user-22",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-499",
@@ -3361,21 +4458,27 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-504",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-505",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-506",
@@ -3396,14 +4499,18 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-511",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-512",
@@ -3431,14 +4538,18 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-518",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-519",
@@ -3473,14 +4584,18 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-23"
+      "prospectId": "user-23",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-525",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-23"
+      "prospectId": "user-23",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-526",
@@ -3508,7 +4623,9 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-24"
+      "prospectId": "user-24",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-531",
@@ -3529,7 +4646,9 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-10-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-537",
@@ -3557,14 +4676,18 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-543",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-544",
@@ -3592,14 +4715,18 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-548",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-550",
@@ -3613,28 +4740,36 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-552",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-553",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-25"
+      "prospectId": "user-25",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-554",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-25"
+      "prospectId": "user-25",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-556",
@@ -3648,7 +4783,9 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-25"
+      "prospectId": "user-25",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-558",
@@ -3669,7 +4806,9 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-26"
+      "prospectId": "user-26",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-562",
@@ -3718,7 +4857,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-26"
+      "prospectId": "user-26",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-571",
@@ -3739,14 +4880,18 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-577",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-578",
@@ -3767,7 +4912,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-581",
@@ -3781,7 +4928,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-583",
@@ -3795,21 +4944,27 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-585",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-586",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-588",
@@ -3823,14 +4978,18 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-10-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-591",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-592",
@@ -3851,7 +5010,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-27"
+      "prospectId": "user-27",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-595",
@@ -3865,7 +5026,9 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-27"
+      "prospectId": "user-27",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-597",
@@ -3900,7 +5063,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-27"
+      "prospectId": "user-27",
+      "videoId": "mock-page-13-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-603",
@@ -3914,7 +5079,9 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-28"
+      "prospectId": "user-28",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-606",
@@ -3928,14 +5095,18 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-28"
+      "prospectId": "user-28",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-609",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-29"
+      "prospectId": "user-29",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-610",
@@ -3956,7 +5127,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-29"
+      "prospectId": "user-29",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-614",
@@ -3984,21 +5157,27 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-29"
+      "prospectId": "user-29",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-619",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-621",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-624",
@@ -4054,56 +5233,72 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-633",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-634",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-636",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-637",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-638",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-639",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-640",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-641",
@@ -4145,7 +5340,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-31"
+      "prospectId": "user-31",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-651",
@@ -4180,7 +5377,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-31"
+      "prospectId": "user-31",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-661",
@@ -4236,7 +5435,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-34"
+      "prospectId": "user-34",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-676",
@@ -4250,7 +5451,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-34"
+      "prospectId": "user-34",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-678",
@@ -4278,7 +5481,9 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-34"
+      "prospectId": "user-34",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-682",
@@ -4292,7 +5497,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-685",
@@ -4306,21 +5513,27 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-19-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-690",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-691",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-692",
@@ -4369,14 +5582,18 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-7-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-700",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-702",
@@ -4397,14 +5614,18 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-35"
+      "prospectId": "user-35",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-707",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-35"
+      "prospectId": "user-35",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-708",
@@ -4439,7 +5660,9 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-35"
+      "prospectId": "user-35",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-713",
@@ -4453,7 +5676,9 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": "user-35"
+      "prospectId": "user-35",
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-715",
@@ -4474,21 +5699,27 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-36"
+      "prospectId": "user-36",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-720",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-36"
+      "prospectId": "user-36",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-721",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": "user-36"
+      "prospectId": "user-36",
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-724",
@@ -4516,7 +5747,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-731",
@@ -4537,7 +5770,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-734",
@@ -4558,7 +5793,9 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-738",
@@ -4572,21 +5809,27 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-740",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-37"
+      "prospectId": "user-37",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-741",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-37"
+      "prospectId": "user-37",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-743",
@@ -4607,7 +5850,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-37"
+      "prospectId": "user-37",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-748",
@@ -4628,7 +5873,9 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-37"
+      "prospectId": "user-37",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-751",
@@ -4642,7 +5889,9 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-37"
+      "prospectId": "user-37",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-753",
@@ -4670,21 +5919,27 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-38"
+      "prospectId": "user-38",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-760",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-39"
+      "prospectId": "user-39",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-761",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-39"
+      "prospectId": "user-39",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-763",
@@ -4698,7 +5953,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-39"
+      "prospectId": "user-39",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-765",
@@ -4726,7 +5983,9 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-39"
+      "prospectId": "user-39",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-770",
@@ -4761,7 +6020,9 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-776",
@@ -4803,21 +6064,27 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-784",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-785",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-786",
@@ -4831,7 +6098,9 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-789",
@@ -4859,7 +6128,9 @@
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-40"
+      "prospectId": "user-40",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-793",
@@ -4901,14 +6172,18 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-40"
+      "prospectId": "user-40",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-800",
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": "user-40"
+      "prospectId": "user-40",
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-801",
@@ -4936,14 +6211,18 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-41"
+      "prospectId": "user-41",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-805",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-41"
+      "prospectId": "user-41",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-807",
@@ -4985,7 +6264,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-815",
@@ -5006,14 +6287,18 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-819",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-820",
@@ -5034,14 +6319,18 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-824",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-42"
+      "prospectId": "user-42",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-825",
@@ -5076,7 +6365,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-42"
+      "prospectId": "user-42",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-831",
@@ -5097,7 +6388,9 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-43"
+      "prospectId": "user-43",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-834",
@@ -5146,28 +6439,36 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": "user-43"
+      "prospectId": "user-43",
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-846",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-43"
+      "prospectId": "user-43",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-847",
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-43"
+      "prospectId": "user-43",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-848",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-44"
+      "prospectId": "user-44",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-849",
@@ -5188,7 +6489,9 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-44"
+      "prospectId": "user-44",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-854",
@@ -5202,21 +6505,27 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": "user-44"
+      "prospectId": "user-44",
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-857",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": "user-44"
+      "prospectId": "user-44",
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-858",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-44"
+      "prospectId": "user-44",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-859",
@@ -5244,21 +6553,27 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-17-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-865",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-867",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-868",
@@ -5272,7 +6587,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-872",
@@ -5293,14 +6610,18 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-879",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-882",
@@ -5342,14 +6663,18 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-889",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-890",
@@ -5363,14 +6688,18 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-892",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-894",
@@ -5405,35 +6734,45 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-900",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-46"
+      "prospectId": "user-46",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-901",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-46"
+      "prospectId": "user-46",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-902",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": "user-46"
+      "prospectId": "user-46",
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-904",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-46"
+      "prospectId": "user-46",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-909",
@@ -5461,7 +6800,9 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-47"
+      "prospectId": "user-47",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-913",
@@ -5524,7 +6865,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-48"
+      "prospectId": "user-48",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-926",
@@ -5566,7 +6909,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-932",
@@ -5587,14 +6932,18 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-940",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-943",
@@ -5608,7 +6957,9 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-49"
+      "prospectId": "user-49",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-945",
@@ -5636,7 +6987,9 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-952",
@@ -5657,7 +7010,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-956",
@@ -5692,7 +7047,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-50"
+      "prospectId": "user-50",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-962",
@@ -5713,14 +7070,18 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-51"
+      "prospectId": "user-51",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-965",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-51"
+      "prospectId": "user-51",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-966",
@@ -5755,7 +7116,9 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-51"
+      "prospectId": "user-51",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-972",
@@ -5783,14 +7146,18 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-979",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-980",
@@ -5811,7 +7178,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-986",
@@ -5853,14 +7222,18 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-993",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-7-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-995",
@@ -5874,7 +7247,9 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-19-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-998",
@@ -5895,14 +7270,18 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": "user-53"
+      "prospectId": "user-53",
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1002",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": "user-53"
+      "prospectId": "user-53",
+      "videoId": "mock-page-8-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1003",
@@ -5916,7 +7295,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-53"
+      "prospectId": "user-53",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1005",
@@ -5944,7 +7325,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1013",
@@ -5972,7 +7355,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-54"
+      "prospectId": "user-54",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1020",
@@ -5986,7 +7371,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-54"
+      "prospectId": "user-54",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1022",
@@ -6007,14 +7394,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1028",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1031",
@@ -6070,7 +7461,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-55"
+      "prospectId": "user-55",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1041",
@@ -6084,7 +7477,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-55"
+      "prospectId": "user-55",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1043",
@@ -6098,28 +7493,36 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1046",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1047",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1049",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1051",
@@ -6140,14 +7543,18 @@
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1054",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1055",
@@ -6175,7 +7582,9 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": "user-56"
+      "prospectId": "user-56",
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1060",
@@ -6196,14 +7605,18 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1064",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1066",
@@ -6224,7 +7637,9 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1069",
@@ -6238,7 +7653,9 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1072",
@@ -6252,14 +7669,18 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-57"
+      "prospectId": "user-57",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1075",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-57"
+      "prospectId": "user-57",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1076",
@@ -6280,7 +7701,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1081",
@@ -6294,14 +7717,18 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1083",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1084",
@@ -6329,7 +7756,9 @@
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1094",
@@ -6371,7 +7800,9 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-58"
+      "prospectId": "user-58",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1104",
@@ -6392,7 +7823,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-58"
+      "prospectId": "user-58",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1108",
@@ -6406,7 +7839,9 @@
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1111",
@@ -6434,7 +7869,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1116",
@@ -6448,14 +7885,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-10-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1119",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-13-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1121",
@@ -6483,14 +7924,18 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-59"
+      "prospectId": "user-59",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1125",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-59"
+      "prospectId": "user-59",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1126",
@@ -6525,7 +7970,9 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-60"
+      "prospectId": "user-60",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1131",
@@ -6539,21 +7986,27 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-60"
+      "prospectId": "user-60",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1134",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-60"
+      "prospectId": "user-60",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1135",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-60"
+      "prospectId": "user-60",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1136",
@@ -6574,7 +8027,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1143",
@@ -6588,42 +8043,54 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1148",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": "user-61"
+      "prospectId": "user-61",
+      "videoId": "mock-page-13-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1149",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-61"
+      "prospectId": "user-61",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1151",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-61"
+      "prospectId": "user-61",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1152",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-62"
+      "prospectId": "user-62",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1153",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-62"
+      "prospectId": "user-62",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1154",
@@ -6665,7 +8132,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-63"
+      "prospectId": "user-63",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1162",
@@ -6700,14 +8169,18 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-63"
+      "prospectId": "user-63",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1167",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-63"
+      "prospectId": "user-63",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1168",
@@ -6721,21 +8194,27 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1170",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-19-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1171",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1173",
@@ -6749,14 +8228,18 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-64"
+      "prospectId": "user-64",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1175",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-64"
+      "prospectId": "user-64",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1176",
@@ -6770,7 +8253,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-64"
+      "prospectId": "user-64",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1178",
@@ -6791,14 +8276,18 @@
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": "user-64"
+      "prospectId": "user-64",
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1181",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": "user-64"
+      "prospectId": "user-64",
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1182",
@@ -6819,7 +8308,9 @@
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": "user-64"
+      "prospectId": "user-64",
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1185",
@@ -6840,7 +8331,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1190",
@@ -6854,7 +8347,9 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": "user-65"
+      "prospectId": "user-65",
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1196",
@@ -6868,7 +8363,9 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-65"
+      "prospectId": "user-65",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1198",
@@ -6896,7 +8393,9 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-65"
+      "prospectId": "user-65",
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1205",
@@ -6924,7 +8423,9 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": "user-66"
+      "prospectId": "user-66",
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1210",
@@ -6966,7 +8467,9 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-67"
+      "prospectId": "user-67",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1218",
@@ -6994,28 +8497,36 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1224",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1227",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": "user-68"
+      "prospectId": "user-68",
+      "videoId": "mock-page-6-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1228",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-68"
+      "prospectId": "user-68",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1229",
@@ -7029,28 +8540,36 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1231",
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1233",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": "user-69"
+      "prospectId": "user-69",
+      "videoId": "mock-page-3-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1234",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": "user-69"
+      "prospectId": "user-69",
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1235",
@@ -7064,14 +8583,18 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-70"
+      "prospectId": "user-70",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1237",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": "user-70"
+      "prospectId": "user-70",
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1238",
@@ -7085,7 +8608,9 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1243",
@@ -7106,21 +8631,27 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1248",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1249",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": "user-72"
+      "prospectId": "user-72",
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1250",
@@ -7141,14 +8672,18 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1254",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-7-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1256",
@@ -7211,28 +8746,36 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-76"
+      "prospectId": "user-76",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1271",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1272",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-1-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1273",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1275",
@@ -7253,14 +8796,18 @@
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1278",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-11-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1284",
@@ -7295,7 +8842,9 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-8-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1291",
@@ -7309,7 +8858,9 @@
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": "user-82"
+      "prospectId": "user-82",
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1293",
@@ -7330,7 +8881,9 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-3",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1297",
@@ -7358,21 +8911,27 @@
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": "user-84"
+      "prospectId": "user-84",
+      "videoId": "mock-page-9-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1301",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-17-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1303",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-85"
+      "prospectId": "user-85",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1304",
@@ -7400,35 +8959,45 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": "user-85"
+      "prospectId": "user-85",
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1308",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-85"
+      "prospectId": "user-85",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1310",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-87"
+      "prospectId": "user-87",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1312",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1313",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-5-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1315",
@@ -7456,21 +9025,27 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-4-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1324",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1326",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": "user-90"
+      "prospectId": "user-90",
+      "videoId": "mock-page-10-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1328",
@@ -7491,14 +9066,18 @@
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-90"
+      "prospectId": "user-90",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1332",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-15-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1334",
@@ -7519,7 +9098,9 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": "user-91"
+      "prospectId": "user-91",
+      "videoId": "mock-page-16-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1337",
@@ -7561,7 +9142,9 @@
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": "user-93"
+      "prospectId": "user-93",
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1343",
@@ -7603,7 +9186,9 @@
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-14-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1349",
@@ -7617,7 +9202,9 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-2-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1351",
@@ -7638,14 +9225,18 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-18-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1354",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-16-video-2",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1357",
@@ -7666,7 +9257,9 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": "user-96"
+      "prospectId": "user-96",
+      "videoId": "mock-page-21-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1362",
@@ -7687,21 +9280,27 @@
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-96"
+      "prospectId": "user-96",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1365",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": "user-96"
+      "prospectId": "user-96",
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1366",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-12-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1367",
@@ -7729,14 +9328,18 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": "user-98"
+      "prospectId": "user-98",
+      "videoId": "mock-page-19-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1372",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null
+      "prospectId": null,
+      "videoId": "mock-page-20-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1373",
@@ -7764,7 +9367,9 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": "user-99"
+      "prospectId": "user-99",
+      "videoId": "mock-page-7-video-1",
+      "videoType": "youtube"
     },
     {
       "id": "workday-row-1379",
