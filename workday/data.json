@@ -11,13 +11,6 @@
     "originalInteractionRows": 1378,
     "includedInteractionRows": 992,
     "excludedInteractionRows": 386,
-    "plannedFields": [
-      {
-        "field": "interactions[].anonymousVisitorId",
-        "status": "planned",
-        "description": "Sample IDs illustrate the approved anonymous tracking addition. The audited GoDocent web tracker does not yet send this field."
-      }
-    ],
     "excluded": [
       {
         "field": "Image Viewed",
@@ -38,11 +31,11 @@
       }
     ],
     "notes": [
-      "These are sample records for the estimate demo, not production Workday activity. Anonymous visitor IDs illustrate planned tracking; other activity fields map to current GoDocent collection.",
+      "These are sample records for the estimate demo, not production Workday activity. Activity fields map to current GoDocent collection.",
       "Names, emails and phone numbers are placeholders. No source contact details are embedded.",
       "Page, prospect and row IDs are local adapter join keys, not exported GoDocent IDs.",
       "Dates have day precision only. Time of day, timezone, page URLs, video IDs and button records are not supplied.",
-      "Anonymous IDs group the workbook's sample anonymous records solely to illustrate planned collection. They do not establish real people or a relationship to named accounts.",
+      "Anonymous events have no visitor ID. They support aggregate page, action and date counts, not individual histories or unique visitor counts. Anonymous ID tracking is deferred.",
       "Publication and report tokens are demo configuration for fixed report views, not telemetry or production access control.",
       "All metrics are recomputed from All Interactions; the repeated Attendee Details sheet is not imported."
     ]
@@ -841,64 +834,56 @@
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-001"
+      "prospectId": null
     },
     {
       "id": "workday-row-4",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-001"
+      "prospectId": null
     },
     {
       "id": "workday-row-5",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-001"
+      "prospectId": null
     },
     {
       "id": "workday-row-6",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-001"
+      "prospectId": null
     },
     {
       "id": "workday-row-9",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-002"
+      "prospectId": null
     },
     {
       "id": "workday-row-10",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-002"
+      "prospectId": null
     },
     {
       "id": "workday-row-11",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-002"
+      "prospectId": null
     },
     {
       "id": "workday-row-12",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-002"
+      "prospectId": null
     },
     {
       "id": "workday-row-13",
@@ -1318,72 +1303,63 @@
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-96",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-97",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-98",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-99",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-100",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-101",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-102",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-103",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-003"
+      "prospectId": null
     },
     {
       "id": "workday-row-104",
@@ -1726,64 +1702,56 @@
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-168",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-169",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-172",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-174",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-176",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-177",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-178",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-004"
+      "prospectId": null
     },
     {
       "id": "workday-row-179",
@@ -2357,248 +2325,217 @@
       "occurredAt": "2025-12-03",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-294",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-295",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-296",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-297",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-298",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-299",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-300",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-301",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-302",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-005"
+      "prospectId": null
     },
     {
       "id": "workday-row-303",
       "occurredAt": "2025-12-03",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-304",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-305",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-306",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-307",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-309",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-310",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-311",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-312",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-313",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-314",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-315",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-006"
+      "prospectId": null
     },
     {
       "id": "workday-row-316",
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-317",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-318",
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-321",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-322",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-323",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-324",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-325",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-327",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-007"
+      "prospectId": null
     },
     {
       "id": "workday-row-329",
@@ -2689,24 +2626,21 @@
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-008"
+      "prospectId": null
     },
     {
       "id": "workday-row-348",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-008"
+      "prospectId": null
     },
     {
       "id": "workday-row-349",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-008"
+      "prospectId": null
     },
     {
       "id": "workday-row-352",
@@ -2972,112 +2906,98 @@
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-404",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-405",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-407",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-411",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-412",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-413",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-009"
+      "prospectId": null
     },
     {
       "id": "workday-row-414",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-415",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-416",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-417",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-418",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-419",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-420",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-010"
+      "prospectId": null
     },
     {
       "id": "workday-row-422",
@@ -3161,40 +3081,35 @@
       "occurredAt": "2025-12-09",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-011"
+      "prospectId": null
     },
     {
       "id": "workday-row-438",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-011"
+      "prospectId": null
     },
     {
       "id": "workday-row-439",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-011"
+      "prospectId": null
     },
     {
       "id": "workday-row-441",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-011"
+      "prospectId": null
     },
     {
       "id": "workday-row-442",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-011"
+      "prospectId": null
     },
     {
       "id": "workday-row-445",
@@ -3215,232 +3130,203 @@
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-012"
+      "prospectId": null
     },
     {
       "id": "workday-row-455",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-013"
+      "prospectId": null
     },
     {
       "id": "workday-row-456",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-013"
+      "prospectId": null
     },
     {
       "id": "workday-row-458",
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-459",
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-461",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-462",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-463",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-464",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-465",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-466",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-467",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-014"
+      "prospectId": null
     },
     {
       "id": "workday-row-469",
       "occurredAt": "2025-12-08",
       "type": "pin_share",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-015"
+      "prospectId": null
     },
     {
       "id": "workday-row-470",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-015"
+      "prospectId": null
     },
     {
       "id": "workday-row-474",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-015"
+      "prospectId": null
     },
     {
       "id": "workday-row-475",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-015"
+      "prospectId": null
     },
     {
       "id": "workday-row-476",
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-016"
+      "prospectId": null
     },
     {
       "id": "workday-row-477",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-016"
+      "prospectId": null
     },
     {
       "id": "workday-row-479",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-016"
+      "prospectId": null
     },
     {
       "id": "workday-row-481",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-016"
+      "prospectId": null
     },
     {
       "id": "workday-row-482",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-016"
+      "prospectId": null
     },
     {
       "id": "workday-row-483",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-016"
+      "prospectId": null
     },
     {
       "id": "workday-row-484",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-485",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-487",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-488",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-489",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-490",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-492",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-017"
+      "prospectId": null
     },
     {
       "id": "workday-row-495",
@@ -3468,120 +3354,105 @@
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-018"
+      "prospectId": null
     },
     {
       "id": "workday-row-500",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-018"
+      "prospectId": null
     },
     {
       "id": "workday-row-504",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-018"
+      "prospectId": null
     },
     {
       "id": "workday-row-505",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-018"
+      "prospectId": null
     },
     {
       "id": "workday-row-506",
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-019"
+      "prospectId": null
     },
     {
       "id": "workday-row-508",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-019"
+      "prospectId": null
     },
     {
       "id": "workday-row-509",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-019"
+      "prospectId": null
     },
     {
       "id": "workday-row-511",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-019"
+      "prospectId": null
     },
     {
       "id": "workday-row-512",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-019"
+      "prospectId": null
     },
     {
       "id": "workday-row-513",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-019"
+      "prospectId": null
     },
     {
       "id": "workday-row-515",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-020"
+      "prospectId": null
     },
     {
       "id": "workday-row-516",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-020"
+      "prospectId": null
     },
     {
       "id": "workday-row-518",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-020"
+      "prospectId": null
     },
     {
       "id": "workday-row-519",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-020"
+      "prospectId": null
     },
     {
       "id": "workday-row-521",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-020"
+      "prospectId": null
     },
     {
       "id": "workday-row-522",
@@ -3651,120 +3522,105 @@
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-021"
+      "prospectId": null
     },
     {
       "id": "workday-row-534",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-021"
+      "prospectId": null
     },
     {
       "id": "workday-row-537",
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-022"
+      "prospectId": null
     },
     {
       "id": "workday-row-538",
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-022"
+      "prospectId": null
     },
     {
       "id": "workday-row-539",
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-022"
+      "prospectId": null
     },
     {
       "id": "workday-row-541",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-022"
+      "prospectId": null
     },
     {
       "id": "workday-row-543",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-544",
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-545",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-546",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-547",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-548",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-550",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-551",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-552",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-023"
+      "prospectId": null
     },
     {
       "id": "workday-row-553",
@@ -3876,128 +3732,112 @@
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-024"
+      "prospectId": null
     },
     {
       "id": "workday-row-575",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-024"
+      "prospectId": null
     },
     {
       "id": "workday-row-577",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-025"
+      "prospectId": null
     },
     {
       "id": "workday-row-578",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-025"
+      "prospectId": null
     },
     {
       "id": "workday-row-579",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-025"
+      "prospectId": null
     },
     {
       "id": "workday-row-580",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-025"
+      "prospectId": null
     },
     {
       "id": "workday-row-581",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-025"
+      "prospectId": null
     },
     {
       "id": "workday-row-582",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-026"
+      "prospectId": null
     },
     {
       "id": "workday-row-583",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-026"
+      "prospectId": null
     },
     {
       "id": "workday-row-584",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-026"
+      "prospectId": null
     },
     {
       "id": "workday-row-585",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-026"
+      "prospectId": null
     },
     {
       "id": "workday-row-586",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-026"
+      "prospectId": null
     },
     {
       "id": "workday-row-588",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-027"
+      "prospectId": null
     },
     {
       "id": "workday-row-590",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-027"
+      "prospectId": null
     },
     {
       "id": "workday-row-591",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-027"
+      "prospectId": null
     },
     {
       "id": "workday-row-592",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-027"
+      "prospectId": null
     },
     {
       "id": "workday-row-593",
@@ -4151,40 +3991,35 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-028"
+      "prospectId": null
     },
     {
       "id": "workday-row-621",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-028"
+      "prospectId": null
     },
     {
       "id": "workday-row-624",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-028"
+      "prospectId": null
     },
     {
       "id": "workday-row-625",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-028"
+      "prospectId": null
     },
     {
       "id": "workday-row-626",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-028"
+      "prospectId": null
     },
     {
       "id": "workday-row-628",
@@ -4212,88 +4047,77 @@
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-029"
+      "prospectId": null
     },
     {
       "id": "workday-row-632",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-029"
+      "prospectId": null
     },
     {
       "id": "workday-row-633",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-029"
+      "prospectId": null
     },
     {
       "id": "workday-row-634",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-029"
+      "prospectId": null
     },
     {
       "id": "workday-row-636",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-637",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-638",
       "occurredAt": "2025-12-05",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-639",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-640",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-641",
       "occurredAt": "2025-12-08",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-643",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-030"
+      "prospectId": null
     },
     {
       "id": "workday-row-646",
@@ -4405,8 +4229,7 @@
       "occurredAt": "2025-12-03",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-031"
+      "prospectId": null
     },
     {
       "id": "workday-row-675",
@@ -4469,104 +4292,91 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-032"
+      "prospectId": null
     },
     {
       "id": "workday-row-685",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-032"
+      "prospectId": null
     },
     {
       "id": "workday-row-689",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-032"
+      "prospectId": null
     },
     {
       "id": "workday-row-690",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-032"
+      "prospectId": null
     },
     {
       "id": "workday-row-691",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-033"
+      "prospectId": null
     },
     {
       "id": "workday-row-692",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-033"
+      "prospectId": null
     },
     {
       "id": "workday-row-694",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-033"
+      "prospectId": null
     },
     {
       "id": "workday-row-695",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-033"
+      "prospectId": null
     },
     {
       "id": "workday-row-696",
       "occurredAt": "2025-12-03",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-034"
+      "prospectId": null
     },
     {
       "id": "workday-row-697",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-034"
+      "prospectId": null
     },
     {
       "id": "workday-row-698",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-034"
+      "prospectId": null
     },
     {
       "id": "workday-row-699",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-034"
+      "prospectId": null
     },
     {
       "id": "workday-row-700",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-034"
+      "prospectId": null
     },
     {
       "id": "workday-row-702",
@@ -4706,72 +4516,63 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-035"
+      "prospectId": null
     },
     {
       "id": "workday-row-731",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-035"
+      "prospectId": null
     },
     {
       "id": "workday-row-732",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-035"
+      "prospectId": null
     },
     {
       "id": "workday-row-733",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-035"
+      "prospectId": null
     },
     {
       "id": "workday-row-734",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-035"
+      "prospectId": null
     },
     {
       "id": "workday-row-736",
       "occurredAt": "2025-12-08",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-036"
+      "prospectId": null
     },
     {
       "id": "workday-row-737",
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-036"
+      "prospectId": null
     },
     {
       "id": "workday-row-738",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-036"
+      "prospectId": null
     },
     {
       "id": "workday-row-739",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-036"
+      "prospectId": null
     },
     {
       "id": "workday-row-740",
@@ -4946,112 +4747,98 @@
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-773",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-774",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-776",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-777",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-778",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-779",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-037"
+      "prospectId": null
     },
     {
       "id": "workday-row-781",
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-782",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-784",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-785",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-786",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-787",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-789",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-038"
+      "prospectId": null
     },
     {
       "id": "workday-row-790",
@@ -5198,64 +4985,56 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-815",
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-816",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-817",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-819",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-820",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-821",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-822",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-039"
+      "prospectId": null
     },
     {
       "id": "workday-row-824",
@@ -5465,192 +5244,168 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-865",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-867",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-868",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-871",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-872",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-874",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-040"
+      "prospectId": null
     },
     {
       "id": "workday-row-878",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-041"
+      "prospectId": null
     },
     {
       "id": "workday-row-879",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-041"
+      "prospectId": null
     },
     {
       "id": "workday-row-882",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-041"
+      "prospectId": null
     },
     {
       "id": "workday-row-883",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-041"
+      "prospectId": null
     },
     {
       "id": "workday-row-885",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-041"
+      "prospectId": null
     },
     {
       "id": "workday-row-886",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-041"
+      "prospectId": null
     },
     {
       "id": "workday-row-887",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-888",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-889",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-890",
       "occurredAt": "2025-12-09",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-891",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-892",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-894",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-895",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-896",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-898",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-899",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-042"
+      "prospectId": null
     },
     {
       "id": "workday-row-900",
@@ -5685,24 +5440,21 @@
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-043"
+      "prospectId": null
     },
     {
       "id": "workday-row-910",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-043"
+      "prospectId": null
     },
     {
       "id": "workday-row-911",
       "occurredAt": "2025-12-20",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-043"
+      "prospectId": null
     },
     {
       "id": "workday-row-912",
@@ -5800,56 +5552,49 @@
       "occurredAt": "2025-12-03",
       "type": "pin_share",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-044"
+      "prospectId": null
     },
     {
       "id": "workday-row-930",
       "occurredAt": "2025-12-09",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-044"
+      "prospectId": null
     },
     {
       "id": "workday-row-931",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-044"
+      "prospectId": null
     },
     {
       "id": "workday-row-932",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-044"
+      "prospectId": null
     },
     {
       "id": "workday-row-938",
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-045"
+      "prospectId": null
     },
     {
       "id": "workday-row-939",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-045"
+      "prospectId": null
     },
     {
       "id": "workday-row-940",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-045"
+      "prospectId": null
     },
     {
       "id": "workday-row-943",
@@ -5877,48 +5622,42 @@
       "occurredAt": "2025-12-03",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-046"
+      "prospectId": null
     },
     {
       "id": "workday-row-947",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-046"
+      "prospectId": null
     },
     {
       "id": "workday-row-949",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-046"
+      "prospectId": null
     },
     {
       "id": "workday-row-952",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-046"
+      "prospectId": null
     },
     {
       "id": "workday-row-953",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-046"
+      "prospectId": null
     },
     {
       "id": "workday-row-954",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-046"
+      "prospectId": null
     },
     {
       "id": "workday-row-956",
@@ -6037,48 +5776,42 @@
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-047"
+      "prospectId": null
     },
     {
       "id": "workday-row-977",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-047"
+      "prospectId": null
     },
     {
       "id": "workday-row-979",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-047"
+      "prospectId": null
     },
     {
       "id": "workday-row-980",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-047"
+      "prospectId": null
     },
     {
       "id": "workday-row-981",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-047"
+      "prospectId": null
     },
     {
       "id": "workday-row-982",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-047"
+      "prospectId": null
     },
     {
       "id": "workday-row-986",
@@ -6120,48 +5853,42 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-048"
+      "prospectId": null
     },
     {
       "id": "workday-row-993",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-048"
+      "prospectId": null
     },
     {
       "id": "workday-row-995",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-048"
+      "prospectId": null
     },
     {
       "id": "workday-row-997",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-048"
+      "prospectId": null
     },
     {
       "id": "workday-row-998",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-048"
+      "prospectId": null
     },
     {
       "id": "workday-row-1000",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-048"
+      "prospectId": null
     },
     {
       "id": "workday-row-1001",
@@ -6217,24 +5944,21 @@
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-049"
+      "prospectId": null
     },
     {
       "id": "workday-row-1013",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-049"
+      "prospectId": null
     },
     {
       "id": "workday-row-1014",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-049"
+      "prospectId": null
     },
     {
       "id": "workday-row-1015",
@@ -6283,40 +6007,35 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-050"
+      "prospectId": null
     },
     {
       "id": "workday-row-1028",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-050"
+      "prospectId": null
     },
     {
       "id": "workday-row-1031",
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-051"
+      "prospectId": null
     },
     {
       "id": "workday-row-1032",
       "occurredAt": "2025-12-09",
       "type": "pin_share",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-051"
+      "prospectId": null
     },
     {
       "id": "workday-row-1034",
       "occurredAt": "2025-12-21",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-051"
+      "prospectId": null
     },
     {
       "id": "workday-row-1035",
@@ -6379,64 +6098,56 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-052"
+      "prospectId": null
     },
     {
       "id": "workday-row-1046",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-052"
+      "prospectId": null
     },
     {
       "id": "workday-row-1047",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-052"
+      "prospectId": null
     },
     {
       "id": "workday-row-1049",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-052"
+      "prospectId": null
     },
     {
       "id": "workday-row-1051",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-052"
+      "prospectId": null
     },
     {
       "id": "workday-row-1052",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-053"
+      "prospectId": null
     },
     {
       "id": "workday-row-1053",
       "occurredAt": "2025-12-18",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-053"
+      "prospectId": null
     },
     {
       "id": "workday-row-1054",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-053"
+      "prospectId": null
     },
     {
       "id": "workday-row-1055",
@@ -6485,64 +6196,56 @@
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1064",
       "occurredAt": "2025-12-03",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1066",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1067",
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1068",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1069",
       "occurredAt": "2025-12-08",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1070",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1072",
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-054"
+      "prospectId": null
     },
     {
       "id": "workday-row-1074",
@@ -6577,64 +6280,56 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-055"
+      "prospectId": null
     },
     {
       "id": "workday-row-1081",
       "occurredAt": "2025-12-07",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-055"
+      "prospectId": null
     },
     {
       "id": "workday-row-1082",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-055"
+      "prospectId": null
     },
     {
       "id": "workday-row-1083",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-055"
+      "prospectId": null
     },
     {
       "id": "workday-row-1084",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-055"
+      "prospectId": null
     },
     {
       "id": "workday-row-1085",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-055"
+      "prospectId": null
     },
     {
       "id": "workday-row-1089",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-056"
+      "prospectId": null
     },
     {
       "id": "workday-row-1092",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-056"
+      "prospectId": null
     },
     {
       "id": "workday-row-1094",
@@ -6704,88 +6399,77 @@
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-057"
+      "prospectId": null
     },
     {
       "id": "workday-row-1110",
       "occurredAt": "2025-12-19",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-057"
+      "prospectId": null
     },
     {
       "id": "workday-row-1111",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-057"
+      "prospectId": null
     },
     {
       "id": "workday-row-1112",
       "occurredAt": "2025-12-02",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-058"
+      "prospectId": null
     },
     {
       "id": "workday-row-1114",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-058"
+      "prospectId": null
     },
     {
       "id": "workday-row-1115",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-058"
+      "prospectId": null
     },
     {
       "id": "workday-row-1116",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-058"
+      "prospectId": null
     },
     {
       "id": "workday-row-1117",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-058"
+      "prospectId": null
     },
     {
       "id": "workday-row-1119",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-059"
+      "prospectId": null
     },
     {
       "id": "workday-row-1121",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-3",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-059"
+      "prospectId": null
     },
     {
       "id": "workday-row-1122",
       "occurredAt": "2025-12-19",
       "type": "pin_share",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-059"
+      "prospectId": null
     },
     {
       "id": "workday-row-1123",
@@ -6883,32 +6567,28 @@
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-060"
+      "prospectId": null
     },
     {
       "id": "workday-row-1141",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-060"
+      "prospectId": null
     },
     {
       "id": "workday-row-1143",
       "occurredAt": "2025-12-11",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-060"
+      "prospectId": null
     },
     {
       "id": "workday-row-1144",
       "occurredAt": "2025-12-21",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-060"
+      "prospectId": null
     },
     {
       "id": "workday-row-1148",
@@ -7041,24 +6721,21 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-061"
+      "prospectId": null
     },
     {
       "id": "workday-row-1170",
       "occurredAt": "2025-12-09",
       "type": "video_play",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-061"
+      "prospectId": null
     },
     {
       "id": "workday-row-1171",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-061"
+      "prospectId": null
     },
     {
       "id": "workday-row-1173",
@@ -7156,24 +6833,21 @@
       "occurredAt": "2025-12-08",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-062"
+      "prospectId": null
     },
     {
       "id": "workday-row-1189",
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-062"
+      "prospectId": null
     },
     {
       "id": "workday-row-1190",
       "occurredAt": "2025-12-13",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-062"
+      "prospectId": null
     },
     {
       "id": "workday-row-1195",
@@ -7306,32 +6980,28 @@
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-063"
+      "prospectId": null
     },
     {
       "id": "workday-row-1222",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-063"
+      "prospectId": null
     },
     {
       "id": "workday-row-1223",
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-063"
+      "prospectId": null
     },
     {
       "id": "workday-row-1224",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-064"
+      "prospectId": null
     },
     {
       "id": "workday-row-1227",
@@ -7352,24 +7022,21 @@
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-065"
+      "prospectId": null
     },
     {
       "id": "workday-row-1230",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-065"
+      "prospectId": null
     },
     {
       "id": "workday-row-1231",
       "occurredAt": "2025-12-20",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-065"
+      "prospectId": null
     },
     {
       "id": "workday-row-1233",
@@ -7418,8 +7085,7 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-070"
+      "prospectId": null
     },
     {
       "id": "workday-row-1243",
@@ -7433,24 +7099,21 @@
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-6",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-074"
+      "prospectId": null
     },
     {
       "id": "workday-row-1247",
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-074"
+      "prospectId": null
     },
     {
       "id": "workday-row-1248",
       "occurredAt": "2025-12-08",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-074"
+      "prospectId": null
     },
     {
       "id": "workday-row-1249",
@@ -7471,24 +7134,21 @@
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-075"
+      "prospectId": null
     },
     {
       "id": "workday-row-1253",
       "occurredAt": "2025-12-01",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-076"
+      "prospectId": null
     },
     {
       "id": "workday-row-1254",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-076"
+      "prospectId": null
     },
     {
       "id": "workday-row-1256",
@@ -7516,40 +7176,35 @@
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-078"
+      "prospectId": null
     },
     {
       "id": "workday-row-1261",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-7",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-078"
+      "prospectId": null
     },
     {
       "id": "workday-row-1264",
       "occurredAt": "2025-12-12",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-079"
+      "prospectId": null
     },
     {
       "id": "workday-row-1265",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-079"
+      "prospectId": null
     },
     {
       "id": "workday-row-1266",
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-10",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-079"
+      "prospectId": null
     },
     {
       "id": "workday-row-1268",
@@ -7563,24 +7218,21 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-081"
+      "prospectId": null
     },
     {
       "id": "workday-row-1272",
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-1",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-081"
+      "prospectId": null
     },
     {
       "id": "workday-row-1273",
       "occurredAt": "2025-12-13",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-082"
+      "prospectId": null
     },
     {
       "id": "workday-row-1275",
@@ -7594,24 +7246,21 @@
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-083"
+      "prospectId": null
     },
     {
       "id": "workday-row-1277",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-083"
+      "prospectId": null
     },
     {
       "id": "workday-row-1278",
       "occurredAt": "2025-12-17",
       "type": "video_play",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-083"
+      "prospectId": null
     },
     {
       "id": "workday-row-1284",
@@ -7639,16 +7288,14 @@
       "occurredAt": "2025-12-22",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-084"
+      "prospectId": null
     },
     {
       "id": "workday-row-1289",
       "occurredAt": "2025-12-22",
       "type": "video_play",
       "pageId": "page-8",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-084"
+      "prospectId": null
     },
     {
       "id": "workday-row-1291",
@@ -7683,24 +7330,21 @@
       "occurredAt": "2025-12-11",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-085"
+      "prospectId": null
     },
     {
       "id": "workday-row-1297",
       "occurredAt": "2025-12-14",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-085"
+      "prospectId": null
     },
     {
       "id": "workday-row-1298",
       "occurredAt": "2025-12-15",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-085"
+      "prospectId": null
     },
     {
       "id": "workday-row-1299",
@@ -7721,8 +7365,7 @@
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-17",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-086"
+      "prospectId": null
     },
     {
       "id": "workday-row-1303",
@@ -7778,16 +7421,14 @@
       "occurredAt": "2025-12-06",
       "type": "video_play",
       "pageId": "page-21",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-088"
+      "prospectId": null
     },
     {
       "id": "workday-row-1313",
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-5",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-089"
+      "prospectId": null
     },
     {
       "id": "workday-row-1315",
@@ -7815,16 +7456,14 @@
       "occurredAt": "2025-12-15",
       "type": "video_play",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-090"
+      "prospectId": null
     },
     {
       "id": "workday-row-1324",
       "occurredAt": "2025-12-16",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-091"
+      "prospectId": null
     },
     {
       "id": "workday-row-1326",
@@ -7859,16 +7498,14 @@
       "occurredAt": "2025-12-07",
       "type": "video_play",
       "pageId": "page-15",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-092"
+      "prospectId": null
     },
     {
       "id": "workday-row-1334",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-9",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-093"
+      "prospectId": null
     },
     {
       "id": "workday-row-1335",
@@ -7910,8 +7547,7 @@
       "occurredAt": "2025-12-01",
       "type": "pin_share",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-094"
+      "prospectId": null
     },
     {
       "id": "workday-row-1341",
@@ -7946,80 +7582,70 @@
       "occurredAt": "2025-12-04",
       "type": "pin_share",
       "pageId": "page-4",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-095"
+      "prospectId": null
     },
     {
       "id": "workday-row-1346",
       "occurredAt": "2025-12-05",
       "type": "pin_share",
       "pageId": "page-19",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-095"
+      "prospectId": null
     },
     {
       "id": "workday-row-1347",
       "occurredAt": "2025-12-06",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-095"
+      "prospectId": null
     },
     {
       "id": "workday-row-1348",
       "occurredAt": "2025-12-14",
       "type": "video_play",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-095"
+      "prospectId": null
     },
     {
       "id": "workday-row-1349",
       "occurredAt": "2025-12-16",
       "type": "pin_share",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-096"
+      "prospectId": null
     },
     {
       "id": "workday-row-1350",
       "occurredAt": "2025-12-04",
       "type": "video_play",
       "pageId": "page-2",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-097"
+      "prospectId": null
     },
     {
       "id": "workday-row-1351",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-097"
+      "prospectId": null
     },
     {
       "id": "workday-row-1352",
       "occurredAt": "2025-12-10",
       "type": "pin_share",
       "pageId": "page-14",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-097"
+      "prospectId": null
     },
     {
       "id": "workday-row-1353",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-18",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-097"
+      "prospectId": null
     },
     {
       "id": "workday-row-1354",
       "occurredAt": "2025-12-12",
       "type": "video_play",
       "pageId": "page-16",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-097"
+      "prospectId": null
     },
     {
       "id": "workday-row-1357",
@@ -8075,8 +7701,7 @@
       "occurredAt": "2025-12-10",
       "type": "video_play",
       "pageId": "page-12",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-098"
+      "prospectId": null
     },
     {
       "id": "workday-row-1367",
@@ -8111,16 +7736,14 @@
       "occurredAt": "2025-12-02",
       "type": "video_play",
       "pageId": "page-20",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-099"
+      "prospectId": null
     },
     {
       "id": "workday-row-1373",
       "occurredAt": "2025-12-17",
       "type": "pin_share",
       "pageId": "page-11",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-099"
+      "prospectId": null
     },
     {
       "id": "workday-row-1376",
@@ -8148,8 +7771,7 @@
       "occurredAt": "2025-12-18",
       "type": "pin_share",
       "pageId": "page-13",
-      "prospectId": null,
-      "anonymousVisitorId": "anon-100"
+      "prospectId": null
     }
   ],
   "publication": {
