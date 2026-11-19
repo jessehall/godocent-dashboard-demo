@@ -684,9 +684,6 @@ button:disabled { cursor: default; }
 .workday-date-filter input,.workday-profile-filters input,.workday-profile-filters select{font:inherit;color:var(--godo-gray-1);background:white;border:1px solid var(--godo-gray-7);border-radius:.375rem;min-height:2.8125rem;padding:.5rem .75rem;max-width:100%}
 .workday-profile-filters select{appearance:auto;padding-right:2rem}
 .workday-date-status{align-self:center;color:var(--godo-gray-3);font-size:.875rem}
-.workday-scope-note{border:2px solid #b62525;border-radius:var(--panel-radius);background:white;padding:1rem;margin-top:1rem}
-#workday-app .workday-scope-note strong{font-size:.9375rem;color:#9d2020}
-.workday-scope-note p{font-size:.875rem}
 .workday-pending-metric{outline:2px solid #b62525;outline-offset:0}
 .workday-pending-metric .metric-value{font-size:1.5rem}
 .workday-score-badge{padding:.25rem .5rem;border:1px solid #b62525;border-radius:9999px;color:#9d2020;font-size:.6875rem;font-weight:800;white-space:nowrap}
@@ -738,9 +735,6 @@ button:disabled { cursor: default; }
 .workday-history time{font-size:.75rem;white-space:nowrap;color:var(--godo-gray-3)}
 .workday-product-history{margin-top:.5rem}
 .workday-product-history>summary{font-size:.8125rem;color:var(--godo-gray-3);cursor:pointer}
-.workday-data-gaps{outline:2px solid #b62525;outline-offset:0}
-.workday-data-gaps ul{margin:0;padding-left:1.25rem;font-size:.875rem;line-height:1.7}
-.workday-data-gaps li+li{margin-top:.65rem}
 .workday-export-actions{display:flex;flex-wrap:wrap;gap:.75rem}
 .workday-empty{padding:1rem 0;font-size:.875rem;color:var(--godo-gray-3);line-height:1.6}
 .workday-report{max-width:52rem;margin:1.5rem auto;background:white;border-radius:var(--panel-radius);box-shadow:var(--panel-shadow);overflow:hidden}
@@ -1458,20 +1452,6 @@ function mockPageSetup() {
   disclosure.append(title, body);
   return disclosure;
 }
-function dataGaps() {
-  const gaps = section('Items for Chris to estimate', 'Red outlines identify planned work or missing inputs. The demo shows the agreed layout and actions.', 'section workday-data-gaps');
-  const list = el('ul');
-  for (const text of [
-    'Anonymous activity: retain aggregate page, action and date counts. Visitor IDs, fingerprinting, individual histories and anonymous lead scoring are deferred.',
-    'Folder analytics: connect this dashboard to the selected folder and define owner/invitee permissions. This static file represents one sample event folder.',
-    'Example V6 scores use mock button/video setup stored in the JSON. Replace those example values with the actual page setup before using scores for a real event. Historical page changes, video counting, click timing and staff/test exclusions still need to be settled.',
-    'Contact-request classification is unresolved. GoDocent does not currently tag buttons as demo or contact requests. This demo scores saved products as direct asks and does not invent contact-request tags.',
-    'Report publication: create and store a fixed report per attendee and date range. The random report links here demonstrate navigation; production report pages need server-side publication and access rules.',
-    'CSV export: keep the download at the bottom and include the full folder dataset with report links. This demo exports all included sample events, regardless of dashboard filters.'
-  ]) list.append(el('li', text));
-  gaps.body.append(list, el('p', 'Excluded: email generation, Open Email, realtime updates, scraped company/job/LinkedIn details, video watch time and confirmed bookings.', 'workday-subtitle'));
-  return gaps.node;
-}
 function download(name, content, type) {
   const url = URL.createObjectURL(new Blob([content], { type }));
   const link = el('a'); link.href = url; link.download = name; link.click();
@@ -1489,11 +1469,7 @@ function renderDashboard() {
   const summary = model.summary;
   const intro = el('div', '', 'source-note');
   intro.append(el('strong', data.event.name + ' event folder · Sample data'), el('p', 'A clickable estimate reference for the agreed GoDocent dashboard and report flow. This is sample activity, not a real Workday event export. Contact details are placeholders.'));
-  const planned = el('div', '', 'workday-scope-note');
-  planned.append(el('strong', scoresAvailable() ? 'Example scores use mock page setup' : 'Estimate scope'), el('p', scoresAvailable() ?
-    'Example V6 scores are calculated from the sample activity and clearly labeled mock buttons/videos. Only saved products count as direct asks here. Contact-request tagging remains unresolved. Anonymous activity stays aggregate-only. No realtime or email feature.' :
-    'Anonymous activity is included as aggregate counts. Anonymous ID tracking is deferred. Folder permissions and scoring inputs remain open. Reports open on click. No realtime or email feature.'));
-  intro.append(planned);
+  if (scoresAvailable()) intro.append(el('p', 'Example scores use mock page setup. The button and video totals are listed below.'));
   if (data.source?.originalInteractionRows != null) intro.append(el('p', data.source.includedInteractionRows + ' of ' + data.source.originalInteractionRows + ' source activity rows included. ' + data.source.excludedInteractionRows + ' “Image Viewed” rows excluded because their meaning cannot be mapped to a collected GoDocent event. Video durations and spreadsheet tiers are also excluded.'));
   const setup = mockPageSetup();
   if (setup) intro.append(setup);
@@ -1519,7 +1495,7 @@ function renderDashboard() {
   const exports = el('div', '', 'workday-export-actions');
   exports.append(button('Export activity CSV', exportCsv, 'btn btn-primary'), button('Download source JSON', () => download('workday.json', JSON.stringify(data, null, 2), 'application/json')));
   exportSection.body.append(exports);
-  dashboard.replaceChildren(intro, overview, breakdown, anonymous, products.node, insights, buildProfiles(), dataGaps(), exportSection.node);
+  dashboard.replaceChildren(intro, overview, breakdown, anonymous, products.node, insights, buildProfiles(), exportSection.node);
 }
 function reportFor(person) {
   const report = el('article', '', 'workday-report');
